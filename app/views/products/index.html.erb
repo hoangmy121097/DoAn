@@ -1,11 +1,15 @@
 <% if user_signed_in? %>
     <%= link_to "Edit profile", edit_user_registration_path %> |
     <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
-<%end%>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path  %> |
+    <%= link_to "Login", new_user_session_path  %>
+	<% end %>
+	
+	<p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
 <i class="fa fa-github"></i>
-
-<%= image_tag ("1.jpg")%>
 
 
 
@@ -118,7 +122,7 @@
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
+						<%= image_tag("logo-01.png") %>
 					</a>
 
 					<!-- Menu desktop -->
@@ -794,30 +798,20 @@
 						<div class="block2">
 							<div class="block2-pic hov-img0">
 								<%= image_tag(product.image_url, class: 'list_image') %>
-
-								<%= product.title %></dt>
-								</a>
 							</div>
 
 							<div class="block2-txt flex-w flex-t p-t-14">
 								<div class="block2-txt-child1 flex-col-l ">
 									<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-										Esprit Ruffle Shirt
+										<%= product.title %></dt>
 									</a>
 
 									<span class="stext-105 cl3">
-										$16.64
+										$<%= product.price %></dt>
 									</span>
 								</div>
 
 						<% end %>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -1246,3 +1240,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 </body>
 </html>
+
+

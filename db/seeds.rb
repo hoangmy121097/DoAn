@@ -28,3 +28,6 @@ Product.create(
     description:%{<p><em>Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.</p>},
     image_url: 'product-06.jpg',
     price: 42.00)
+
+
+User.create({email: "hoangmy121097@gmail.com", password: "123456", password_confirmation: "123456"})
