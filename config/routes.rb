@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :line_items
+  resources :carts
+  get 'store/index'
   devise_for :users
   resources :products
-  root to: 'products#index'
+  root to: 'store#index'
 
   authenticated :user do
-    root 'products#index', as: 'authenticated_root'
+    root 'store#index', as: 'authenticated_root'
   end
   devise_scope :user do
     root 'devise/sessions#new'
